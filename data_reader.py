@@ -159,14 +159,14 @@ class DataReader():
 
         data = tf.data.Dataset.from_tensor_slices((self.image_list, self.label_list, self.weight_list))
 
-        if shuffle == True:
+        if shuffle:
             data = data.shuffle(len(self.image_list))
 
         data = data.map(self.decode_image)
         data = data.map(self.resize)
 
         # Data augmentation
-        if train == 1:
+        if train:
             if self.rotate:
                 data = data.map(self.rotate_image,  num_parallel_calls=2)
             if self.mirror:

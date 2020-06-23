@@ -13,7 +13,7 @@ def predict(model, config):
     """
 
     data = DataReader(config.val_file_path, config)
-    batch = data.read_batch(train=0, num_epochs=1)
+    batch = data.read_batch(train=False, num_epochs=1)
 
     checkpoint = tf.train.Checkpoint(step=tf.Variable(1), net=model)
     manager = tf.train.CheckpointManager(checkpoint, config.save_directory, max_to_keep=10)

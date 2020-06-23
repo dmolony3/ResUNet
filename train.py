@@ -63,7 +63,7 @@ def train(model, config):
     """
 
     train_data = DataReader(config.train_file_path, config)
-    train_batch = train_data.read_batch(train=1, num_epochs=config.num_epochs, 
+    train_batch = train_data.read_batch(train=True, num_epochs=config.num_epochs, 
                                         shuffle=True)
     train_iterations = int(train_data.num_images//config.batch_size)
 
@@ -92,7 +92,7 @@ def train(model, config):
                 epoch_loss_val = []
                 acc = []
 
-                val_batch = val_data.read_batch(train=0, num_epochs=1)
+                val_batch = val_data.read_batch(train=False, num_epochs=1)
 
                 for images, labels, weights in val_batch:
                     loss, preds = val_step(model, images, labels)

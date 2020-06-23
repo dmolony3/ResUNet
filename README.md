@@ -1,5 +1,5 @@
 # Deep Residual U-Net
-This is a tensorflow implementation of [Deep residual U-Net](https://arxiv.org/abs/1711.10684).
+This is a tensorflow implementation of [Deep residual U-Net](https://arxiv.org/abs/1711.10684) for image segmentation.
 
 ## Deep Residual U-Net
 U-Net is a convolutional neural network architecture typically used for semantic segmentation applications. [The original
@@ -22,7 +22,8 @@ The model architecture is built as closely as possible to the original paper. Ho
 not clearly specified so for this implementation we use bilinear interpolation. The learning rate is decayed using a cosine decay without warmup or restarts. 
 The current implementation has 3 data augmentation operations, namely - rotations, mirroring and additive gaussian noise.
 At the end of each training epoch the training and validation losses are reported along with the accuracy (intersection over union). The model is 
-trained with pixel weighted cross-entropy. If no weights are provided uniform weights are applied.
+trained with pixel weighted cross-entropy. If no weights are provided uniform weights are applied. When running the model in prediction mode 
+segmented labelmaps will be written to file.
 
 ## Data Format
 Both training and validation/test data should be provided in the form of a comma separated text file which contains the paths to the images and labels. 

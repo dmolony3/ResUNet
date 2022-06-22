@@ -1,4 +1,4 @@
-numpy==1.16.2
+numpy==1.22.0
 tb-nightly==1.14.0a20190603
 tensorboard==1.14.0
 tensorflow-addons==0.4.0
